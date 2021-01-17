@@ -1,23 +1,37 @@
 import SwiftUI
-import Introspect
 
 @main
 struct BigBrotherApp: App {
-  @State var introspected: Bool = false
+  @State var image: Image?
   var body: some Scene {
     WindowGroup {
       AppView()
+        .environment(\.[\UpdatePreview.self], { image = $0 })
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        //TODO: make the window resizable (when I introspect the NSWindow, it claims its already resizable, but its not
-        //.frame(maxWidth: NSScreen.main.map { $0.frame.width - 100 }, maxHeight: NSScreen.main.map { $0.frame.height - 200 })
     }
+    WindowGroup("Preview") {
+      VStack {
+        image.map {
+          $0
+          .resizable()
+          .aspectRatio(contentMode: ContentMode.fit)
+        }
+      }
+      .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+    .handlesExternalEvents(matching: Set(arrayLiteral: "*"))
   }
 }
 
+struct UpdatePreview: EnvironmentKey {
+  static var defaultValue: (Image) -> Void = { _ in }
+}
+
 struct AppView: View {
+  var background: Color = .clear
   var body: some View {
     ScreenRecorderView()
-//    Text("resizable text")
       .showErrors(shouldPrint: true)
+      .background(background)
   }
 }
