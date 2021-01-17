@@ -3,20 +3,16 @@ import ReplayKit
 import Combine
 
 struct ScreenRecorderView: View {
-  @Environment(\.[\Throw.self]) var `throw`
-  @Environment(\.[\ScreenRecorder.self]) var screenRecorder
-  @State @Reference var recordingCancellable: AnyCancellable?
-  @State var preview: Image?
-  @State var isRecording: Bool = false
+  @Environment(\.[\Throw.self]) private var `throw`
+  @Environment(\.[\ScreenRecorder.self]) private var screenRecorder
+  @Environment(\.openURL) private var openURL
+  @Environment(\.[\UpdatePreview.self]) var updatePreview
+  @State @Reference private var recordingCancellable: AnyCancellable?
+  @State private var isRecording: Bool = false
   var body: some View {
     VStack {
       Text("Big Brother App")
       recordButton
-      preview.map {
-        $0
-        .resizable()
-        .aspectRatio(contentMode: ContentMode.fit)
-      }
     }
     .padding()
   }
@@ -34,9 +30,9 @@ struct ScreenRecorderView: View {
   }
   
   func startRecording() {
+    openURL(URL(string: "bigbrother://")!)
     defer { isRecording = true }
     screenRecorder.recordingPublisher
-      .print("recording")
       .sendErrors(to: `throw`)
       .throttle(for: 1, scheduler: DispatchQueue.main, latest: false)
       .sink { sampleBuffer, sampleBufferType in
@@ -48,7 +44,8 @@ struct ScreenRecorderView: View {
           let rep = NSCIImageRep(ciImage: ciImage)
           let nsImage = NSImage(size: rep.size)
           nsImage.addRepresentation(rep)
-          preview = Image(nsImage: nsImage)
+          let image = Image(nsImage: nsImage)
+          updatePreview(image)
         default:
           break
         }
