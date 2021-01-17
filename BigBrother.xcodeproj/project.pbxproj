@@ -46,6 +46,7 @@
 		79E6DDDE25B44DE900B333DA /* BigBrotherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BigBrotherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79E6DDE225B44DE900B333DA /* BigBrotherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigBrotherUITests.swift; sourceTree = "<group>"; };
 		79E6DDE425B44DE900B333DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79E6DDF325B44E9F00B333DA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +77,7 @@
 		79E6DDB825B44DE600B333DA = {
 			isa = PBXGroup;
 			children = (
+				79E6DDF325B44E9F00B333DA /* README.md */,
 				79E6DDC325B44DE600B333DA /* BigBrother */,
 				79E6DDD625B44DE900B333DA /* BigBrotherTests */,
 				79E6DDE125B44DE900B333DA /* BigBrotherUITests */,
