@@ -43,11 +43,6 @@ struct ScreenRecorderView: View {
         
         if let error = error { `throw`(error) }
         if let pixelBuffer = (request.results as? [VNPixelBufferObservation])?.first?.pixelBuffer {
-print(pixelBuffer)
-          //          buffer = pixelBuffer
-          
-//          print("io", CVPixelBufferGetIOSurface(pixelBuffer))
-//          let compatibleBuffer = pixelBuffer.copyToMetalCompatible()!
           let ciImage = CIImage(cvImageBuffer: pixelBuffer)
           let rep = NSCIImageRep(ciImage: ciImage)
           let nsImage = NSImage(size: rep.size)
@@ -57,7 +52,7 @@ print(pixelBuffer)
           updatePreview(image)
         }
       }
-      request.imageCropAndScaleOption = .scaleFit
+      request.imageCropAndScaleOption = .centerCrop
       visionRequest = request
     }
   }
@@ -115,7 +110,6 @@ struct PreviewView: NSViewRepresentable {
     .init()
   }
   func updateNSView(_ nsView: NSView, context: Context) {
-    print("update")
     nsView.layer?.contents = buffer
   }
 }
