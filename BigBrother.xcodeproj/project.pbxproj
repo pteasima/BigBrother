@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7923E3AC25BA0B6E00A1CE40 /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7923E3AB25BA0B6E00A1CE40 /* Playground.swift */; };
 		799CE09025B62C5A00B19853 /* Introspect+NSWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799CE08F25B62C5A00B19853 /* Introspect+NSWindow.swift */; };
 		799CE09825B64F6400B19853 /* VanGogh.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 799CE09725B64F6400B19853 /* VanGogh.mlmodel */; };
 		799CE09D25B65A3600B19853 /* CVPixelBuffer+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799CE09C25B65A3600B19853 /* CVPixelBuffer+Helpers.swift */; };
@@ -32,6 +33,8 @@
 		79E6DE0F25B467AA00B333DA /* Environment+SubscriptByKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E6DE0D25B467AA00B333DA /* Environment+SubscriptByKey.swift */; };
 		79E6DE1025B467AA00B333DA /* OnFirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E6DE0E25B467AA00B333DA /* OnFirstAppear.swift */; };
 		79E6DE1725B4681A00B333DA /* ScreenRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E6DE1625B4681A00B333DA /* ScreenRecorder.swift */; };
+		79F5A13C25BDBC3C00666008 /* CocoaExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A13B25BDBC3C00666008 /* CocoaExtensions.swift */; };
+		79F5A14225BDBCA300666008 /* WindowInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A14125BDBCA300666008 /* WindowInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7923E3AB25BA0B6E00A1CE40 /* Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
 		799CE08F25B62C5A00B19853 /* Introspect+NSWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Introspect+NSWindow.swift"; sourceTree = "<group>"; };
 		799CE09725B64F6400B19853 /* VanGogh.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = VanGogh.mlmodel; sourceTree = "<group>"; };
 		799CE09C25B65A3600B19853 /* CVPixelBuffer+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+Helpers.swift"; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 		79E6DE0D25B467AA00B333DA /* Environment+SubscriptByKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Environment+SubscriptByKey.swift"; sourceTree = "<group>"; };
 		79E6DE0E25B467AA00B333DA /* OnFirstAppear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnFirstAppear.swift; sourceTree = "<group>"; };
 		79E6DE1625B4681A00B333DA /* ScreenRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRecorder.swift; sourceTree = "<group>"; };
+		79F5A13B25BDBC3C00666008 /* CocoaExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaExtensions.swift; sourceTree = "<group>"; };
+		79F5A14125BDBCA300666008 /* WindowInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,9 +118,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7923E3AA25BA0B6400A1CE40 /* Playground */ = {
+			isa = PBXGroup;
+			children = (
+				7923E3AB25BA0B6E00A1CE40 /* Playground.swift */,
+			);
+			path = Playground;
+			sourceTree = "<group>";
+		};
 		79E6DDB825B44DE600B333DA = {
 			isa = PBXGroup;
 			children = (
+				7923E3AA25BA0B6400A1CE40 /* Playground */,
 				79E6DDF325B44E9F00B333DA /* README.md */,
 				79E6DDC325B44DE600B333DA /* BigBrother */,
 				79E6DDD625B44DE900B333DA /* BigBrotherTests */,
@@ -139,6 +154,7 @@
 				799CE09725B64F6400B19853 /* VanGogh.mlmodel */,
 				79E6DDF425B4671700B333DA /* Helpers */,
 				79E6DE1525B467CD00B333DA /* Services */,
+				79F5A14025BDBC9700666008 /* Model */,
 				79E6DE1425B467BF00B333DA /* Features */,
 				79E6DDC425B44DE600B333DA /* BigBrotherApp.swift */,
 				79E6DDC825B44DE800B333DA /* Assets.xcassets */,
@@ -193,6 +209,7 @@
 				79AD0C0A25B46F6E00CB83C1 /* Reference.swift */,
 				799CE08F25B62C5A00B19853 /* Introspect+NSWindow.swift */,
 				799CE0A125B672A900B19853 /* Binding+Mock.swift */,
+				79F5A13B25BDBC3C00666008 /* CocoaExtensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -211,6 +228,14 @@
 				79E6DE1625B4681A00B333DA /* ScreenRecorder.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		79F5A14025BDBC9700666008 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				79F5A14125BDBCA300666008 /* WindowInfo.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,6 +376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79AD0C0B25B46F6E00CB83C1 /* Reference.swift in Sources */,
+				79F5A13C25BDBC3C00666008 /* CocoaExtensions.swift in Sources */,
 				79E6DE0925B4678100B333DA /* SwiftUI+DevTools.swift in Sources */,
 				79E6DDC725B44DE600B333DA /* ScreenRecorderView.swift in Sources */,
 				799CE09025B62C5A00B19853 /* Introspect+NSWindow.swift in Sources */,
@@ -358,6 +384,7 @@
 				79E6DE0025B4674C00B333DA /* FoundationExtensions.swift in Sources */,
 				79E6DE1025B467AA00B333DA /* OnFirstAppear.swift in Sources */,
 				79E6DDFD25B4674C00B333DA /* SImpleError.swift in Sources */,
+				79F5A14225BDBCA300666008 /* WindowInfo.swift in Sources */,
 				79E6DDFF25B4674C00B333DA /* FP.swift in Sources */,
 				799CE0A225B672A900B19853 /* Binding+Mock.swift in Sources */,
 				79E6DE1725B4681A00B333DA /* ScreenRecorder.swift in Sources */,
@@ -366,6 +393,7 @@
 				799CE09825B64F6400B19853 /* VanGogh.mlmodel in Sources */,
 				79E6DE0F25B467AA00B333DA /* Environment+SubscriptByKey.swift in Sources */,
 				79E6DE0125B4674C00B333DA /* StdLibExtensions.swift in Sources */,
+				7923E3AC25BA0B6E00A1CE40 /* Playground.swift in Sources */,
 				799CE09D25B65A3600B19853 /* CVPixelBuffer+Helpers.swift in Sources */,
 				79E6DE0425B4674C00B333DA /* URL+DocumentsDirectory.swift in Sources */,
 				79E6DE0225B4674C00B333DA /* CombineExtensions.swift in Sources */,
@@ -459,6 +487,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-expression-type-checking=100";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -513,6 +542,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-expression-type-checking=100";
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
