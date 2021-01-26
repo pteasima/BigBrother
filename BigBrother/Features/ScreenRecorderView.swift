@@ -104,12 +104,12 @@ struct ScreenRecorderView_Previews: PreviewProvider {
 }
 
 
-struct PreviewView: NSViewRepresentable {
-  var buffer: CVPixelBuffer?
-  func makeNSView(context: Context) -> NSView {
-    .init()
-  }
-  func updateNSView(_ nsView: NSView, context: Context) {
-    nsView.layer?.contents = buffer
-  }
-}
+//struct PreviewView: NSViewRepresentable {
+//  var buffer: CVPixelBuffer?
+//  func makeNSView(context: Context) -> NSView {
+//    .init()
+//  }
+//  func updateNSView(_ nsView: NSView, context: Context) {
+//    nsView.layer?.contents = buffer
+//  }
+//}
