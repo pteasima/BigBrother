@@ -4,7 +4,7 @@ import Introspect
 
 @main
 struct BigBrotherApp: App {
-  @State @Reference var previewWindow: NSWindow?
+  @State @WeakReference var previewWindow: NSWindow?
   @State var image: Image?
   
   final class WindowDelegate: NSObject, ObservableObject, NSWindowDelegate {
@@ -39,7 +39,6 @@ struct BigBrotherApp: App {
   var body: some Scene {
     WindowGroup {
       AppView()
-        .environment(\.[\UpdatePreview.self], { image = $0 })
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .dev { appView in
           VStack {
@@ -48,24 +47,37 @@ struct BigBrotherApp: App {
           }
         }
     }
-    WindowGroup("Preview") {
-      VStack {
-        image.map {
-          $0
-          .resizable()
-          .aspectRatio(contentMode: ContentMode.fit)
-        }
-      }
-      .introspectNSWindow { window in
-//        window.ignoresMouseEvents = true
-        window.alphaValue = 0.8
-        window.orderFrontRegardless()
-        window.delegate = windowDelegate
-        previewWindow = window
-      }
-      .frame(width: 512, height: 512)
-    }
-    .handlesExternalEvents(matching: Set(arrayLiteral: "*"))
+//    WindowGroup("Preview") {
+//      VStack {
+//        Button(action: onTap) {
+//          Text("Im a button.")
+//        }
+//        image.map {
+//          $0
+//          .resizable()
+//          .aspectRatio(contentMode: ContentMode.fit)
+//        }
+//      }
+////      .introspectNSWindow { window in
+//////        window.ignoresMouseEvents = true
+////        guard previewWindow == nil || previewWindow == window
+////        else {
+//////          window.close()
+////          return
+////        }
+////
+////        window.alphaValue = 0.8
+////        window.orderFrontRegardless()
+////        window.delegate = windowDelegate
+////        previewWindow = window
+////      }
+//      .frame(width: 512, height: 512)
+//    }
+//    .handlesExternalEvents(matching: ["preview"])
+  }
+  
+  func onTap() {
+    
   }
 }
 
@@ -74,15 +86,37 @@ struct UpdatePreview: EnvironmentKey {
 }
 
 struct AppView: View {
+  @State var image: Image?
   var background: Color = .clear
   var body: some View {
     VStack {
       TextEditor(text: .mock("empty"))
       ScreenRecorderView()
+        .environment(\.[\UpdatePreview.self], { image = $0 })
         .showErrors(shouldPrint: true)
         .background(background)
     }
-    
+    .introspectNSWindow(customize: setup(window:))
+  }
+  
+  @State @Reference private var setupOnce: Once?
+  func setup(window: NSWindow) {
+    setupOnce {
+      let child = NSWindow(contentViewController: NSHostingController(rootView: Group {
+        VStack {
+          Button(action: {}) {
+            Text("Im a button.")
+          }
+          image.map {
+            $0
+            .resizable()
+            .aspectRatio(contentMode: ContentMode.fit)
+          }
+        }
+        .frame(width: 500, height: 500)
+      }))
+      window.addChildWindow(child, ordered: .above)
+    }
   }
 }
 

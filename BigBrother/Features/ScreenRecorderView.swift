@@ -59,7 +59,7 @@ struct ScreenRecorderView: View {
   
   
   func startRecording() {
-    openURL(URL(string: "bigbrother://")!)
+    openURL(URL(string: "bigbrother://preview")!)
     defer { isRecording = true }
     screenRecorder.recordingPublisher
       .sendErrors(to: `throw`)
